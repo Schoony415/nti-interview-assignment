@@ -4,10 +4,17 @@ import "../../MortgageCalculator/style.scss";
 
 const CalcInput = ({...props}) => {
 
+    const clearAll = () => {
+        console.log("cleared");
+        
+        
+    }
+
+
     return (
         <div className="Parent LeftBox">
             <h3>Mortgage Calculator</h3>
-            <a>Clear All</a>
+            <span onClick={clearAll} className='ClearAll'>Clear All</span>
 
             <div>
                 <label>Mortgage Amount</label>

@@ -23,7 +23,7 @@ const CalcResult = ({...props}) => {
                 <h4>$123,456.78</h4>
             </div>
         </>:<>         
-            <span>put the image here</span>
+            <span>put the image here using bootstrap figure?</span>
             <h3>Results shown here</h3>
             <p>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
 
