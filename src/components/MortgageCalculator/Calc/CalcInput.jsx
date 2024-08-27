@@ -45,7 +45,7 @@ const CalcInput = ({...props}) => {
                 </div>
             </div>
 
-            <button>Calculate Repayments</button>
+            <button type="submit" class="btn btn-primary">Calculate Repayments</button>
         </div>
     )
 }

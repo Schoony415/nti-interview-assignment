@@ -8,6 +8,16 @@ import "./style.scss";
 const MortgageCalculator = ({ ...props }) => {
 	const formRef = useRef(null);
 
+	// const [mortgageAmount, setMortgageAmount] = useState(0)
+	// const [mortgageTerm, setMortgageTerm] = useState(0)
+	// const [interestRate, setInterestRate] = useState(0)
+	// const [mortgageType, setMortgageType] = useState(undefined)
+	
+	// const [monthlyRepayment, setMonthlyRepayment] = useState(0)
+	// const [totalLoan, setTotalLoan] = useState(0)
+	// const [interest, setInterest] = useState(0)
+
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formData = new FormData(formRef.current);
@@ -16,14 +26,14 @@ const MortgageCalculator = ({ ...props }) => {
 	};
 
 	return (
-		<form
+		<div
 			className="mortgage-calculator d-flex flex-column flex-md-row bg-white rounded-4 w-100"
 			ref={formRef}
 			onSubmit={handleSubmit}
 		>
 			<CalcInput/>
 			<CalcResults/>
-		</form>
+		</div>
 	);
 };
 
