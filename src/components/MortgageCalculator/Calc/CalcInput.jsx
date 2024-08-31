@@ -14,11 +14,11 @@ const CalcInput = ({ handleReset,  ...props}) => {
     
 
     return (
-        <div className="Parent LeftBox">
+        <div className="Parent LeftBox px-3 py-3"> 
             <div className='form-row d-flex'>
-                <h3 className='col mx-4'>Mortgage Calculator</h3>
+                <h3 className='col'>Mortgage Calculator</h3>
 
-                <input className='ClearAll col mx-4' type="reset" value="Clear All"/>
+                <input className='ClearAll col' type="reset" value="Clear All"/>
             </div>
 
             <Field id="MortgageAmount" 
@@ -27,7 +27,7 @@ const CalcInput = ({ handleReset,  ...props}) => {
                 invalidFeedback="This field is required"
                 adornment="$"
                 adornmentPrepend
-                className="mx-4"
+                className=""
                 />
 
             <div className='form-row d-flex'>
@@ -36,7 +36,7 @@ const CalcInput = ({ handleReset,  ...props}) => {
                     type="number"
                     invalidFeedback="This field is required"
                     adornment="years"
-                    className="col mx-4"
+                    className="col mr-2"
                     />
                 
                 <Field id="InterestRate" 
@@ -44,18 +44,18 @@ const CalcInput = ({ handleReset,  ...props}) => {
                     type="number"
                     invalidFeedback="This field is required"
                     adornment="%"
-                    className="col mx-4"
+                    className="col ml-2"
 
                     />
             </div>
 
 
-            <div className='mx-4'>
+            <div className=''>
                 <label>Mortgage Type</label>
                 <Radials id="operation" options={["Repayment","Interest Only"]} />
             </div>
 
-            <button type="submit" className="btn btn-primary mx-4">Calculate Repayments</button>
+            <button type="submit" className="btn btn-primary">Calculate Repayments</button>
         </div>
     )
 }
