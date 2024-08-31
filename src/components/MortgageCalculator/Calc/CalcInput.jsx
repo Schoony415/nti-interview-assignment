@@ -4,49 +4,58 @@ import Radials from '@/components/Form/Radials';
 import "../../MortgageCalculator/style.scss";
 
 
-const CalcInput = ({ handleSubmit, ...props}) => {
+const CalcInput = ({ handleReset,  ...props}) => {
 
     const clearAll = () => {
         console.log("cleared");
-        
+        handleReset()
         
     }
     
 
     return (
         <div className="Parent LeftBox">
-            <h3>Mortgage Calculator</h3>
-            <span onClick={clearAll} className='ClearAll'>Clear All</span>
+            <div className='form-row d-flex'>
+                <h3 className='col mx-4'>Mortgage Calculator</h3>
+
+                <input className='ClearAll col mx-4' type="reset" value="Clear All"/>
+            </div>
 
             <Field id="MortgageAmount" 
                 label="Mortgage Amount" 
                 type="number"
+                invalidFeedback="This field is required"
                 adornment="$"
                 adornmentPrepend
+                className="mx-4"
                 />
 
-
-            <fieldset>
+            <div className='form-row d-flex'>
                 <Field id="MortgageTerm" 
                     label="Mortgage Term" 
                     type="number"
+                    invalidFeedback="This field is required"
                     adornment="years"
+                    className="col mx-4"
                     />
                 
                 <Field id="InterestRate" 
                     label="Interest Rate" 
                     type="number"
+                    invalidFeedback="This field is required"
                     adornment="%"
+                    className="col mx-4"
+
                     />
-            </fieldset>
+            </div>
 
 
-            <div>
+            <div className='mx-4'>
                 <label>Mortgage Type</label>
                 <Radials id="operation" options={["Repayment","Interest Only"]} />
             </div>
 
-            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Calculate Repayments</button>
+            <button type="submit" className="btn btn-primary mx-4">Calculate Repayments</button>
         </div>
     )
 }
