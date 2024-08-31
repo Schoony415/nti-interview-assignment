@@ -20,6 +20,8 @@ const MortgageCalculator = ({ ...props }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log("handlesubmit")
+		console.log(e)
 		const formData = new FormData(formRef.current);
 		const data = Object.fromEntries(formData.entries());
 		console.log(data);
@@ -31,7 +33,7 @@ const MortgageCalculator = ({ ...props }) => {
 			ref={formRef}
 			onSubmit={handleSubmit}
 		>
-			<CalcInput/>
+			<CalcInput handleSubmit={handleSubmit}/>
 			<CalcResults/>
 		</div>
 	);
