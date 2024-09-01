@@ -4,7 +4,7 @@ import Radios from '@/components/Form/Radios';
 import "../../MortgageCalculator/style.scss";
 
 
-const CalcInput = ({ handleReset,  ...props}) => {
+const CalcInput = ({ handleReset, errorList, ...props}) => {
     
     return (
         <div className="Parent LeftBox px-3 py-3"> 
@@ -21,7 +21,8 @@ const CalcInput = ({ handleReset,  ...props}) => {
                 adornment="$"
                 adornmentPrepend
                 className=""
-                inputProps={{min:0, max:100000000, }}
+                inputProps={{min:0, max:100000000, required:true}}
+                invalid = {errorList.includes("MortgageAmount")}
                 />
 
             <div className='form-row d-flex'>
@@ -32,7 +33,8 @@ const CalcInput = ({ handleReset,  ...props}) => {
                     adornment="years"
                     className="col"
                     inputProps={{min:0, max:200, step:.1 }}
-                    style={{marginRight:"0.5rem"}} //mr-2 wasn't working
+                    style={{marginRight:"0.5rem", required:true}} //mr-2 wasn't working
+                    invalid = {errorList.includes("MortgageTerm")}
                     />
                 
                 <Field id="InterestRate" 
@@ -42,17 +44,19 @@ const CalcInput = ({ handleReset,  ...props}) => {
                     adornment="%"
                     className="col"
                     inputProps={{min:-100.00, max:200.00, step:.01}}
-                    style={{marginLeft:"0.5rem"}} //ml-2 wasn't working
+                    style={{marginLeft:"0.5rem", required:true}} //ml-2 wasn't working
+                    invalid = {errorList.includes("InterestRate")}
                     />
             </div>
 
-
-            <div className=''>
-                <label className='text-4 text-slate-700'>Mortgage Type</label>
-                <Radios id="operation" options={["Repayment","Interest Only"]} />
-            </div>
-
-            <button type="submit" className="btn btn-primary rounded-5 bg-lime text-slate-900 text-3 py-2 px-3 border-0">
+            <Radios id="operation"
+                label="Mortgage Type" 
+                options={["Repayment","Interest Only"]} 
+                invalidFeedback="This field is required"
+                invalid = {errorList.includes("operation")}
+                />
+            
+            <button type="submit" className="btn btn-primary rounded-5 bg-lime text-slate-900 text-3 py-2 px-3 my-4 border-0">
                 <img src='images/icon-calculator.svg' className='my-auto mx-2 d-inline' style={{width:"1.5rem", height:"1.5rem"}} alt='icon'/>
                 Calculate Repayments
                 </button>

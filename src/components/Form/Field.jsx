@@ -1,14 +1,9 @@
 import React, {useState} from 'react';
 import "./Field.scss"
 
-const Field = ({ id, label, type, children, invalidFeedback, adornmentPrepend, adornment, className, inputProps, ...props}) => {
+const Field = ({ id, label, type, children, invalidFeedback, adornmentPrepend, adornment, className, inputProps, invalid, ...props}) => {
 
-    const [hooverGroup, setHooverGroup] = useState(false);
-
-    const onHoover = (e) => {setHooverGroup(true)}
-    const onUnhoover = (e) => {setHooverGroup(false)}
-    const isHoover = () => {return hooverGroup?"Hover ":""}
-
+    const checkInvalid = () => {return invalid?"Invalid":""}
 
     const addAdornment = (input) => (
         <div  className='input-group'>
@@ -30,7 +25,7 @@ const Field = ({ id, label, type, children, invalidFeedback, adornmentPrepend, a
     )
 
 
-    return (<div className={"mb-3 "+className} {...props}>
+    return (<div className={"mb-3 form-control-parent "+className+" "+checkInvalid()} {...props}>
         <label className="form-label text-4 text-slate-700" htmlFor={id}>{label}</label>
         
         {adornment?
@@ -40,7 +35,7 @@ const Field = ({ id, label, type, children, invalidFeedback, adornmentPrepend, a
             <input className={"form-control border-slate-500 text-3 text-slate-900"} id={id} type={type} name={id} {...inputProps}/>        
         }
         
-        {invalidFeedback && <div className='invalid-feedback'>{invalidFeedback}</div>}
+        {invalidFeedback && invalid && <div className='text-red text-5'>{invalidFeedback}</div>}
         {children && <div className="form-text">{children}</div>}
     </div>)
 }

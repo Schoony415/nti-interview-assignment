@@ -15,12 +15,32 @@ const MortgageCalculator = ({ ...props }) => {
 	const [repaymentAmount, setRepaymentAmount] = useState(null)
 	const [interest, setInterest] = useState(null)
 
+	const [errorList, setErrorList] = useState([])
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formData = new FormData(formRef.current);
 		const data = Object.fromEntries(formData.entries());
-		console.log("data:", data);
+		// console.log("data:", data);
 
+		// create a list of errors if there are any
+		const tempErrorList = [];
+
+		Object.entries(data).forEach((entry) => {
+			const [key, value] = entry
+
+			if(!value){ tempErrorList.push(key); return;}
+			if(key != "operation" && isNaN(Number(value))){ tempErrorList.push(key); return; }
+		});
+		
+		if(!("operation" in data)){tempErrorList.push("operation")}
+		if(tempErrorList.length>0){
+			setErrorList(tempErrorList); return;
+		}else{
+			setErrorList([])
+		}
+
+		// happy path
 		if(data.operation == "Repayment"){
 			setMortgagePayments(+loanMonthlyPayment(+data.MortgageAmount, +data.InterestRate, +data.MortgageTerm))
 			setRepaymentAmount(+calculateInterest(+data.MortgageAmount, +data.InterestRate, +data.MortgageTerm) + +data.MortgageAmount)
@@ -40,6 +60,7 @@ const MortgageCalculator = ({ ...props }) => {
 		setMortgagePayments(null)
 		setRepaymentAmount(null)
 		setInterest(null)
+		setErrorList([])
 	}
 
 
@@ -47,9 +68,11 @@ const MortgageCalculator = ({ ...props }) => {
 		<form
 			className="mortgage-calculator d-flex flex-column flex-md-row bg-white rounded-4 w-100"
 			ref={formRef}
+			
 			onSubmit={handleSubmit}
+			noValidate
 		>
-			<CalcInput handleReset={handleReset}/>
+			<CalcInput handleReset={handleReset} errorList={errorList}/>
 			<CalcResults mortgagePayments={mortgagePayments} repaymentAmount={repaymentAmount} interest={interest}/>
 		</form>
 	);

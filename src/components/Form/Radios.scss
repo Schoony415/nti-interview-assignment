@@ -1,5 +1,6 @@
 @import '../../app/_styles/variables.scss';
 
+// active state
 .form-check.Active {
     border-color: $lime !important;
     background-color: rgba($lime, .15);
@@ -13,12 +14,19 @@
 
 }
 
+// focus state
 .form-check-input:focus {
     //undoing default behavior
     outline: unset;
     box-shadow: unset;
 }
 
+// hover state
 .form-check:hover {
     border-color: $lime !important;
+}
+
+// error state
+.text-red {
+    color: $red
 }

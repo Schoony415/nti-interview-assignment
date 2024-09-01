@@ -1,5 +1,6 @@
 @import '../../app/_styles/variables.scss';
 
+// hover states
 .input-group:hover .input-group-text,
 .input-group:hover .form-control,
 .form-control:hover
@@ -8,7 +9,7 @@
 
 }
 
-
+// focus states
 .input-group-prepend:has(+ .form-control:focus) .input-group-text ,
 .form-control:focus + .input-group-append .input-group-text
 {
@@ -25,7 +26,22 @@
   box-shadow: unset;
 }
 
+// error states
+.form-control-parent.Invalid .input-group-text,
+.form-control-parent.Invalid .form-control
+{
+  border-color: $red !important;
+}
 
+.form-control-parent.Invalid .input-group-text
+{
+  background-color: $red !important;
+  color: white !important;
+}
+
+.text-red {
+  color: $red
+}
 
 /* remove spinner from number fields */
 /* Chrome, Safari, Edge, Opera */
