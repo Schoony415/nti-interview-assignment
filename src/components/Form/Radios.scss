@@ -1,16 +1,16 @@
 @import '../../app/_styles/variables.scss';
 
 // active state
-.form-check.Active {
+.form-check:has(> .form-check-input:checked) {
     border-color: $lime !important;
     background-color: rgba($lime, .15);
 }
 
-.form-check-input.Active {
+.form-check-input:checked {
     border-color: $lime !important;
 }
 
-.form-check-label.Active {
+.form-check-input:checked + .form-check-label {
 
 }
 
