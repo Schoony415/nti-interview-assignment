@@ -9,34 +9,35 @@ const CalcResult = ({mortgagePayments, repaymentAmount, interest, ...props}) => 
     }
 
     return (
-        <div className="Parent RightBox px-3 py-3 bg-slate-900 text-slate-300">
+        <div className="Parent RightBox px-4 py-3 bg-slate-900 text-slate-300">
+        <div>
         { mortgagePayments && !interest && <>
-            <h3 className="text-white">Your results</h3>
-            <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again.</p>
+            <h3 className="text-white text-2">Your results</h3>
+            <p className='text-4'>Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again.</p>
 
             <div className='TotalBox px-4 py-4 rounded-2'>
-                <span>Your monthly repayments</span>
-                <h1 className='text-lime text-preset-4'>${roundTwoDecimal(mortgagePayments)}</h1>
+                <p className='text-4'>Your monthly repayments</p>
+                <h1 className='text-lime text-1'>${roundTwoDecimal(mortgagePayments)}</h1>
 
                 <hr className='mx-3 '/>
 
-                <span>Total you'll repay over the term</span>
-                <h4 className='text-white'>${roundTwoDecimal(repaymentAmount)}</h4>
+                <p className='text-4'>Total you'll repay over the term</p>
+                <h4 className='text-white text-2'>${roundTwoDecimal(repaymentAmount)}</h4>
             </div>
         </> }
 
         { !mortgagePayments && interest && <>
-            <span>${roundTwoDecimal(interest)}</span>
-            <p>NOTE: This screen is never given</p>
+            <p className='text-white text-2 text-center'>${roundTwoDecimal(interest)}</p>
+            <p className='text-center text-4'>NOTE: This screen is never given</p>
         </> }
 
         { !mortgagePayments && !interest && <>         
-            <span>put the image here using bootstrap figure?</span>
-            <h3>Results shown here</h3>
-            <p>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
+            <img src='images/illustration-empty.svg' className='mx-auto d-block' alt='illustration-empty'/>
+            <h3 className='text-2 text-center text-white'>Results shown here</h3>
+            <p className='text-4 text-center'>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
 
         </>}
-
+        </div>
         </div>
     )
 }

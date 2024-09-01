@@ -14,7 +14,15 @@
     }
 
     .RightBox {
-        // background-color: $slate-900;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+
+        border-bottom-left-radius: 5rem;
+
+        //devnote: the div was losing the rounded border from the parent, couldn't fix with bootstrap calsses
+        border-top-right-radius: var(--bs-border-radius-xl);
+        border-bottom-right-radius: var(--bs-border-radius-xl);
     }
 
     .ClearAll {
@@ -27,5 +35,6 @@
     .TotalBox{
         background-color: rgba(0,0,0,.25);
     }
+
     
 }

@@ -32,3 +32,42 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
     display: flex;
     flex-direction: column;
 }
+
+// Text styles
+.text-1 { 
+    font-family: "Plus Jakarta Sans";
+    font-weight: bold;
+    font-size: 3.5rem;
+    line-height: 125%;
+    letter-spacing: -0.0625rem;
+}
+
+.text-2 {
+    font-family: "Plus Jakarta Sans";
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 125%;
+    letter-spacing: -0.0625rem;    
+}
+
+.text-3 {
+    font-family: "Plus Jakarta Sans";
+    font-weight: bold;
+    font-size: 1.125rem;
+    line-height: 125%;
+    letter-spacing: -0.0625rem;
+}
+
+.text-4 {
+    font-family: "Plus Jakarta Sans";
+    font-size: 1rem;
+    line-height: 150%;
+    letter-spacing: 0rem;
+}
+
+.text-5 {
+    font-family: "Plus Jakarta Sans";
+    font-size: 0.875rem;
+    line-height: 150%;
+    letter-spacing: 0rem;
+}
