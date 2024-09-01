@@ -1,3 +1,32 @@
+@import '../../app/_styles/variables.scss';
+
+.input-group:hover .input-group-text,
+.input-group:hover .form-control,
+.form-control:hover
+{
+  border-color: $slate-900 !important;
+
+}
+
+
+.input-group-prepend:has(+ .form-control:focus) .input-group-text ,
+.form-control:focus + .input-group-append .input-group-text
+{
+  border-color: $lime !important;
+  background-color: $lime !important;
+  color: $slate-900 !important;
+}
+
+.form-control:focus {
+  border-color: $lime !important;
+
+  //undoing default behavior
+  outline: unset;
+  box-shadow: unset;
+}
+
+
+
 /* remove spinner from number fields */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -17,11 +46,13 @@ input[type=number] {
   border-top-right-radius: 0;
   border-bottom-left-radius: var(--bs-border-radius);
   border-bottom-right-radius: 0;
+  border-right: none;
 }
 
 .Only-Rounded-Right {
   border-top-left-radius: 0;
   border-top-right-radius: var(--bs-border-radius);
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: var(--bs-border-radius);;
+  border-bottom-right-radius: var(--bs-border-radius);
+  border-left: none;
 }

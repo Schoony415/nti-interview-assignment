@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Field.scss"
 
 const Field = ({ id, label, type, children, invalidFeedback, adornmentPrepend, adornment, className, inputProps, ...props}) => {
 
+    const [hooverGroup, setHooverGroup] = useState(false);
+
+    const onHoover = (e) => {setHooverGroup(true)}
+    const onUnhoover = (e) => {setHooverGroup(false)}
+    const isHoover = () => {return hooverGroup?"Hover ":""}
+
+
     const addAdornment = (input) => (
-        <div className={'input-group'}>
+        <div  className='input-group'>
 
         {adornmentPrepend &&(
-            <div className='input-group-prepend'>
+            <div className='input-group-prepend' >
                 <span className='input-group-text Only-Rounded-Left border-slate-500 bg-slate-100 text-3 text-slate-700'>{adornment}</span>
             </div>
         )}
