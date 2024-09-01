@@ -1,0 +1,23 @@
+@import '../../app/_styles/variables.scss';
+
+.form-check.Active {
+    border-color: $lime !important;
+    background-color: rgba($lime, .15);
+}
+
+.form-check-input.Active {
+    border-color: $lime !important;
+}
+
+.form-check-label.Active {
+
+}
+
+.form-check-input:focus {
+    outline: unset;
+    box-shadow: unset;
+}
+
+.form-check:hover {
+    border-color: $lime !important;
+}

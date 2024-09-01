@@ -1,6 +1,6 @@
 import React from 'react';
 import Field from '@/components/Form/Field';
-import Radials from '@/components/Form/Radials';
+import Radios from '@/components/Form/Radios';
 import "../../MortgageCalculator/style.scss";
 
 
@@ -49,7 +49,7 @@ const CalcInput = ({ handleReset,  ...props}) => {
 
             <div className=''>
                 <label className='text-4 text-slate-700'>Mortgage Type</label>
-                <Radials id="operation" options={["Repayment","Interest Only"]} />
+                <Radios id="operation" options={["Repayment","Interest Only"]} />
             </div>
 
             <button type="submit" className="btn btn-primary rounded-5 bg-lime text-slate-900 text-3 py-2 px-3 border-0">
