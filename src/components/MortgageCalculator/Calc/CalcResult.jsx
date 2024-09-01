@@ -3,9 +3,14 @@ import "../../MortgageCalculator/style.scss";
 
 
 const CalcResult = ({mortgagePayments, repaymentAmount, interest, ...props}) => {
-    
+    const nfObject = new Intl.NumberFormat('en-US')
+
     const roundTwoDecimal = (num) => {
-        return Math.round(num*100)/100
+        return (Math.round(num*100)/100).toFixed(2)
+    }
+
+    const formatNumber = (num) => {
+        return nfObject.format(roundTwoDecimal(num))
     }
 
     return (
@@ -17,18 +22,18 @@ const CalcResult = ({mortgagePayments, repaymentAmount, interest, ...props}) => 
 
             <div className='TotalBox px-4 py-4 rounded-2'>
                 <p className='text-4'>Your monthly repayments</p>
-                <h1 className='text-lime text-1'>${roundTwoDecimal(mortgagePayments)}</h1>
+                <h1 className='text-lime text-1'>${formatNumber(mortgagePayments)}</h1>
 
                 <hr className='mx-3 '/>
 
                 <p className='text-4'>Total you'll repay over the term</p>
-                <h4 className='text-white text-2'>${roundTwoDecimal(repaymentAmount)}</h4>
+                <h4 className='text-white text-2'>${formatNumber(repaymentAmount)}</h4>
             </div>
         </> }
 
         { !mortgagePayments && interest && <>
-            <p className='text-white text-2 text-center'>${roundTwoDecimal(interest)}</p>
-            <p className='text-center text-4'>NOTE: This screen is never given</p>
+            <p className='text-white text-2 text-center'>${formatNumber(interest)}</p>
+            <p className='text-center text-4'>NOTE: This screen was never designed</p>
         </> }
 
         { !mortgagePayments && !interest && <>         
