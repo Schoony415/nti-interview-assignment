@@ -5,20 +5,13 @@ import "../../MortgageCalculator/style.scss";
 
 
 const CalcInput = ({ handleReset,  ...props}) => {
-
-    const clearAll = () => {
-        console.log("cleared");
-        handleReset()
-        
-    }
     
-
     return (
         <div className="Parent LeftBox px-3 py-3"> 
             <div className='form-row d-flex'>
                 <h3 className='col'>Mortgage Calculator</h3>
-
-                <input className='ClearAll col' type="reset" value="Clear All"/>
+                <span className='ClearAll col' onClick={handleReset} type="reset">Clear All</span>
+                {/* <input className='ClearAll col' type="reset" value="Clear All"/> */}
             </div>
 
             <Field id="MortgageAmount" 
@@ -28,6 +21,7 @@ const CalcInput = ({ handleReset,  ...props}) => {
                 adornment="$"
                 adornmentPrepend
                 className=""
+                inputProps={{min:0, max:100000000, }}
                 />
 
             <div className='form-row d-flex'>
@@ -36,7 +30,8 @@ const CalcInput = ({ handleReset,  ...props}) => {
                     type="number"
                     invalidFeedback="This field is required"
                     adornment="years"
-                    className="col mr-2"
+                    className="mr-2 col"
+                    inputProps={{min:0, max:200, step:.1 }}
                     />
                 
                 <Field id="InterestRate" 
@@ -44,8 +39,8 @@ const CalcInput = ({ handleReset,  ...props}) => {
                     type="number"
                     invalidFeedback="This field is required"
                     adornment="%"
-                    className="col ml-2"
-
+                    className="ml-2 col"
+                    inputProps={{min:-100.00, max:200.00, step:.01}}
                     />
             </div>
 

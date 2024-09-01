@@ -4,7 +4,7 @@
     // Be sure to nest any custom classes on child elements to avoid conflicts
 
     .Parent {
-        border: 1px solid red;
+        // border: 1px solid red;
         width: 50%;
         
     }
@@ -24,5 +24,8 @@
         user-select: none;
     }
     
+    .TotalBox{
+        background-color: rgba(0,0,0,.25);
+    }
     
 }
