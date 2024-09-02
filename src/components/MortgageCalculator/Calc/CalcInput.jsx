@@ -7,7 +7,7 @@ import "../../MortgageCalculator/style.scss";
 const CalcInput = ({ handleReset, errorList, ...props}) => {
     
     return (
-        <div className="Parent LeftBox px-3 py-3"> 
+        <div className="Parent LeftBox col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 px-3 py-3"> 
             <div className='form-row d-flex align-items-center mb-3'>
                 <h3 className='col-9 text-2 text-slate-900'>Mortgage Calculator</h3>
                 <span className='ClearAll col-3 text-end text-4 text-slate-700' onClick={handleReset} type="reset">Clear All</span>

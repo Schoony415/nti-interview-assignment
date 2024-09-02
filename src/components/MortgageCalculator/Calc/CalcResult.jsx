@@ -14,7 +14,7 @@ const CalcResult = ({mortgagePayments, repaymentAmount, interest, ...props}) => 
     }
 
     return (
-        <div className="Parent RightBox px-4 py-3 bg-slate-900 text-slate-300">
+        <div className="Parent RightBox col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 px-4 py-3 bg-slate-900 text-slate-300">
         <div>
         { mortgagePayments && !interest && <>
             <h3 className="text-white text-2">Your results</h3>

@@ -1,4 +1,4 @@
-@import '../../app/_styles/variables.scss';
+@import '../../app/_styles/global.scss';
 
 // hover states
 .input-group:hover .input-group-text,
@@ -22,8 +22,8 @@
   border-color: $lime !important;
 
   //undoing default behavior
-  outline: unset;
-  box-shadow: unset;
+  outline: unset !important;
+  box-shadow: unset !important;
 }
 
 // error states
@@ -58,17 +58,17 @@ input[type=number] {
 
 //devnote: bootstrap was giving my adornments all rounded corners
 .Only-Rounded-Left {
-  border-top-left-radius: var(--bs-border-radius);
-  border-top-right-radius: 0;
-  border-bottom-left-radius: var(--bs-border-radius);
-  border-bottom-right-radius: 0;
-  border-right: none;
+  border-top-left-radius: var(--bs-border-radius) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: var(--bs-border-radius) !important;
+  border-bottom-right-radius: 0 !important;
+  border-right: none !important;
 }
 
 .Only-Rounded-Right {
-  border-top-left-radius: 0;
-  border-top-right-radius: var(--bs-border-radius);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: var(--bs-border-radius);
-  border-left: none;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: var(--bs-border-radius) !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: var(--bs-border-radius) !important;
+  border-left: none !important;
 }

@@ -1,5 +1,15 @@
 @import "~bootstrap/scss/functions";
 
+// adjust medium breakpiont to cover tablets
+// $grid-breakpoints: (  
+//     xs: 0,
+//     sm: 576px,
+//     md: 820px,
+//     lg: 992px,
+//     xl: 1200px,
+//     xxl: 1400px
+// );
+
 // Default variable overrides
 @import "./variables.scss";
 @import "~bootstrap/scss/variables";
@@ -24,6 +34,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/bootstrap";
+
+
 
 
 // Custom styles

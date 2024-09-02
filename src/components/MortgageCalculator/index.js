@@ -66,9 +66,8 @@ const MortgageCalculator = ({ ...props }) => {
 
 	return (
 		<form
-			className="mortgage-calculator d-flex flex-column flex-md-row bg-white rounded-4 w-100"
+			className="mortgage-calculator d-flex flex-column flex-lg-row bg-white w-100"
 			ref={formRef}
-			
 			onSubmit={handleSubmit}
 			noValidate
 		>

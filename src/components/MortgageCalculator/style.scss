@@ -1,16 +1,15 @@
-@import '../../app/_styles/variables.scss';
+@import '../../app/_styles/global.scss';
 
 .mortgage-calculator {
-    max-width: 1008px;
+    // max-width: 1008px;
     min-height: 606px;
+    margin: auto;
     // Be sure to nest any custom classes on child elements to avoid conflicts
 
     .Parent {
-        // border: 1px solid red;
-        width: 50%;
-        
+        // width: 50%; 
     }
-
+    
     .LeftBox {
         // background-color: $slate-100;
     }
@@ -19,14 +18,24 @@
         display: flex;
         justify-content: center;
         align-items: center; 
-
-        border-bottom-left-radius: 5rem;
-
-        //devnote: the div was losing the rounded border from the parent, couldn't fix with bootstrap calsses
-        border-top-right-radius: var(--bs-border-radius-xl);
-        border-bottom-right-radius: var(--bs-border-radius-xl);
     }
+    @include media-breakpoint-up(md) {
+        .RightBox {
+            //devnote: the div was losing the rounded border from the parent, couldn't fix with bootstrap calsses
+            border-bottom-left-radius: var(--bs-border-radius-xl);
+            border-bottom-right-radius: var(--bs-border-radius-xl);
+        }
+      }
+    @include media-breakpoint-up(lg) {
+        .RightBox {
+            border-bottom-left-radius: 5rem;
 
+            //devnote: the div was losing the rounded border from the parent, couldn't fix with bootstrap calsses
+            border-top-right-radius: var(--bs-border-radius-xl);
+            border-bottom-right-radius: var(--bs-border-radius-xl);
+        }
+      }
+      
     .ClearAll {
         cursor: pointer; 
         text-decoration: underline;
@@ -50,4 +59,16 @@
         background-color: rgba($lime, .5) !important;
     }
     
+}
+@include media-breakpoint-up(md) {
+    .mortgage-calculator {
+        max-width: 688px;
+        border-radius: var(--bs-border-radius-xl);
+    }
+}
+@include media-breakpoint-up(lg) {
+    .mortgage-calculator {
+        max-width: 1008px;
+        border-radius: var(--bs-border-radius-xl);
+    }
 }
