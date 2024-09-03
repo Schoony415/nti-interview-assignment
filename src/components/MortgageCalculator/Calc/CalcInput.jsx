@@ -1,6 +1,8 @@
 import React from 'react';
 import Field from '@/components/Form/Field';
 import Radios from '@/components/Form/Radios';
+import formatNumber from '@/app/numberFormat/formatNumber';
+import removeComma from '@/app/numberFormat/removeComma';
 import "../../MortgageCalculator/style.scss";
 
 
@@ -16,12 +18,27 @@ const CalcInput = ({ handleReset, errorList, ...props}) => {
 
             <Field id="MortgageAmount" 
                 label="Mortgage Amount" 
-                type="number"
+                type="text"
                 invalidFeedback="This field is required"
                 adornment="$"
                 adornmentPrepend
                 className=""
-                inputProps={{min:0, max:100000000, required:true}}
+                inputProps={{min:0, max:100000000, required:true, 
+                    onChange:(e)=>{
+                        // adding the comma's into the input as a user is typing means we have to change the input to text, and then work around the commas
+                        let tempVal = e.target.value
+                        // short circuit if trying to enter a decimal
+                        if(tempVal.slice(-1)=="."){return;}
+
+                        tempVal = removeComma(tempVal)
+                        // if we don't have a number, let it be
+                        if(isNaN(Number(tempVal))){return;}
+                        // happy path
+                        tempVal = formatNumber(Number(tempVal))
+                        e.target.value = tempVal;
+                    },
+                    
+                }}
                 invalid = {errorList.includes("MortgageAmount")}
                 />
 
