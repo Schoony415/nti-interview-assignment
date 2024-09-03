@@ -1,17 +1,9 @@
 import React from 'react';
 import "../../MortgageCalculator/style.scss";
-
+import roundTwoDecimal from '@/app/logic/roundTwoDecimal';
+import formatNumber from '@/app/logic/formatNumber';
 
 const CalcResult = ({mortgagePayments, repaymentAmount, interest, ...props}) => {
-    const nfObject = new Intl.NumberFormat('en-US')
-
-    const roundTwoDecimal = (num) => {
-        return (Math.round(num*100)/100).toFixed(2)
-    }
-
-    const formatNumber = (num) => {
-        return nfObject.format(roundTwoDecimal(num))
-    }
 
     return (
         <div className="Parent RightBox col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 px-4 py-3 bg-slate-900 text-slate-300">
@@ -22,17 +14,17 @@ const CalcResult = ({mortgagePayments, repaymentAmount, interest, ...props}) => 
 
             <div className='TotalBox px-4 py-4 rounded-2'>
                 <p className='text-4'>Your monthly repayments</p>
-                <h1 className='text-lime text-1'>${formatNumber(mortgagePayments)}</h1>
+                <h1 className='text-lime text-1'>${formatNumber(roundTwoDecimal(mortgagePayments))}</h1>
 
                 <hr className='mx-3 '/>
 
                 <p className='text-4'>Total you'll repay over the term</p>
-                <h4 className='text-white text-2'>${formatNumber(repaymentAmount)}</h4>
+                <h4 className='text-white text-2'>${formatNumber(roundTwoDecimal(repaymentAmount))}</h4>
             </div>
         </> }
 
         { !mortgagePayments && interest && <>
-            <p className='text-white text-2 text-center'>${formatNumber(interest)}</p>
+            <p className='text-white text-2 text-center'>${formatNumber(roundTwoDecimal(interest))}</p>
             <p className='text-center text-4'>NOTE: This screen was never designed</p>
         </> }
 

@@ -5,6 +5,7 @@ import CalcResults from './Calc/CalcResult';
 
 import loanMonthlyPayment from '@/app/logic/loanMonthlyPayment';
 import calculateInterest from '@/app/logic/calculateInterest'
+import removeComma from "@/app/logic/removeComma";
 
 import "./style.scss";
 
@@ -30,7 +31,20 @@ const MortgageCalculator = ({ ...props }) => {
 			const [key, value] = entry
 
 			if(!value){ tempErrorList.push(key); return;}
-			if(key != "operation" && isNaN(Number(value))){ tempErrorList.push(key); return; }
+			// we want this to exist, and also don't care the value
+			if(key == "operation"){return;}
+			// MortgageAmount we need to treat a little more special now that it is text
+			if(key == "MortgageAmount"){
+				if(isNaN(Number(removeComma(value)))){
+					tempErrorList.push(key); 
+				}else{
+					// if peachy we save as number
+					data.MortgageAmount = Number(removeComma(value))
+				}
+				return;
+			}
+			// the other cases that are numbers
+			if(isNaN(Number(value))){ tempErrorList.push(key); return; }
 		});
 		
 		if(!("operation" in data)){tempErrorList.push("operation")}
@@ -40,6 +54,8 @@ const MortgageCalculator = ({ ...props }) => {
 			setErrorList([])
 		}
 
+
+		// console.log(data)
 		// happy path
 		if(data.operation == "Repayment"){
 			setMortgagePayments(+loanMonthlyPayment(+data.MortgageAmount, +data.InterestRate, +data.MortgageTerm))
