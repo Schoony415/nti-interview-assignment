@@ -1,8 +1,8 @@
 import React from 'react';
 import Field from '@/components/Form/Field';
 import Radios from '@/components/Form/Radios';
-import formatNumber from '@/app/logic/formatNumber';
-import removeComma from '@/app/logic/removeComma';
+import formatNumber from '@/app/numberFormat/formatNumber';
+import removeComma from '@/app/numberFormat/removeComma';
 import "../../MortgageCalculator/style.scss";
 
 
@@ -29,7 +29,7 @@ const CalcInput = ({ handleReset, errorList, ...props}) => {
                         let tempVal = e.target.value
                         // short circuit if trying to enter a decimal
                         if(tempVal.slice(-1)=="."){return;}
-                        
+
                         tempVal = removeComma(tempVal)
                         // if we don't have a number, let it be
                         if(isNaN(Number(tempVal))){return;}

@@ -1,7 +1,7 @@
 import React from 'react';
 import "../../MortgageCalculator/style.scss";
-import roundTwoDecimal from '@/app/logic/roundTwoDecimal';
-import formatNumber from '@/app/logic/formatNumber';
+import roundTwoDecimal from '@/app/numberFormat/roundTwoDecimal';
+import formatNumber from '@/app/numberFormat/formatNumber';
 
 const CalcResult = ({mortgagePayments, repaymentAmount, interest, ...props}) => {
 

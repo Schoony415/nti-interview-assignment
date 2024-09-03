@@ -5,7 +5,7 @@ import CalcResults from './Calc/CalcResult';
 
 import loanMonthlyPayment from '@/app/logic/loanMonthlyPayment';
 import calculateInterest from '@/app/logic/calculateInterest'
-import removeComma from "@/app/logic/removeComma";
+import removeComma from "@/app/numberFormat/removeComma";
 
 import "./style.scss";
 
